@@ -1,0 +1,30 @@
+<table id = "table" lay-filter = "table" class = "layui-hide"></table>
+
+<script type="text/html" id = "toolbar">
+    <div class = "layui-btn-container">
+        <button class = "layui-btn layui-btn-sm" lay-event = "update">修改</button>
+        <button class = "layui-btn layui-btn-sm layui-btn-danger" lay-event = "delete">修改</button>
+    </div>
+</script>
+
+<script type="text/javascript">
+    layui.use('table', function () {
+        var table = layui.table;
+
+        table.render({
+            elem:"#table",
+            url:'/user/list',
+            toolbar:'#toolbar',
+            page:true,
+            cols:[[
+                {field:'ck',type:'checkbox', fixed:'left', align:'center'},
+                {field:'id',title:'ID', sort:true, align:'center'},
+                {field:'username',title:'用户姓名', align:'center'},
+                {field:'password',title:'用户密码', align:'center'},
+                {field:'sex',title:'用户性别',align:'center'},
+                {field:'birthday',title:'出生日期', align:'center'},
+            ]]
+        });
+    });
+
+</script>
